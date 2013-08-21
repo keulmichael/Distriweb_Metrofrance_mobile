@@ -18,7 +18,24 @@ xhr_object = new XMLHttpRequest();
      else return(false);
      }
 
-
+function edition()
+{
+navigator.geolocation.getCurrentPosition(function(position) {
+var lat=position.coords.latitude.split('.'); var long=position.coords.longitude.split('.');
+if (lat[0]==2 && long[0]==48){var edition='paris';}
+if (lat[0]==3 && long[0]==47){var edition='lyon';}
+if (lat[0]==3 && long[0]==47){var edition='marseille';}
+if (lat[0]==3 && long[0]==47){var edition='lille';}
+if (lat[0]==3 && long[0]==47){var edition='toulouse';}
+if (lat[0]==3 && long[0]==47){var edition='nantes';}
+if (lat[0]==3 && long[0]==47){var edition='rennes';}
+if (lat[0]==3 && long[0]==47){var edition='strasbourg';}
+if (lat[0]==3 && long[0]==47){var edition='montpellier';}
+if (lat[0]==3 && long[0]==47){var edition='bordeaux';}
+if (lat[0]==3 && long[0]==47){var edition='nice';}
+writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/index.php?edition'+edition))
+})
+}
 function rechargerPage(edition) {
 document.getElementById('loader').innerHTML="<img src='http://distriweb.metrofrance.com/distriplan/mobile/phonegap/loader.gif'>";
 var tournee = document.getElementById("tournee").value;
@@ -141,7 +158,7 @@ document.getElementById('open_camera_button').style.visibility="hidden";
         <link rel="stylesheet" href="css/camera.css" type="text/css">
 </head>
 
-<body onload="writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/index.php'));onLoad();bascule()">
+<body onload="edition();onLoad();bascule()">
 </body>
 
 <div id='total'></div>
