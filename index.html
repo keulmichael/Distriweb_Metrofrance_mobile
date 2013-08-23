@@ -21,21 +21,22 @@ xhr_object = new XMLHttpRequest();
 function edition()
 {
 navigator.geolocation.getCurrentPosition(function(position) {
-var lat=position.coords.latitude.split('.'); var long=position.coords.longitude.split('.');
-if (lat[0]==2 && long[0]==48){var edition='paris';}
-if (lat[0]==3 && long[0]==47){var edition='lyon';}
-if (lat[0]==3 && long[0]==47){var edition='marseille';}
-if (lat[0]==3 && long[0]==47){var edition='lille';}
-if (lat[0]==3 && long[0]==47){var edition='toulouse';}
-if (lat[0]==3 && long[0]==47){var edition='nantes';}
-if (lat[0]==3 && long[0]==47){var edition='rennes';}
-if (lat[0]==3 && long[0]==47){var edition='strasbourg';}
-if (lat[0]==3 && long[0]==47){var edition='montpellier';}
-if (lat[0]==3 && long[0]==47){var edition='bordeaux';}
-if (lat[0]==3 && long[0]==47){var edition='nice';}
+lati=Math.round(position.coords.latitude*10)/10;longi=Math.round(position.coords.longitude*10)/10;
+if (lati==48.8 && longi==2.3){var edition='paris';}
+if (lati==3 && longi==47){var edition='lyon';}
+if (lati==3 && longi==47){var edition='marseille';}
+if (lati==3 && longi==47){var edition='lille';}
+if (lati==3 && longi==47){var edition='toulouse';}
+if (lati==3 && longi==47){var edition='nantes';}
+if (lati==3 && longi==47){var edition='rennes';}
+if (lati==3 && longi==47){var edition='strasbourg';}
+if (lati==3 && longi==47){var edition='montpellier';}
+if (lati==3 && longi==47){var edition='bordeaux';}
+if (lati==3 && longi==47){var edition='nice';}
 writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/index.php?edition'+edition))
 })
 }
+
 function rechargerPage(edition) {
 document.getElementById('loader').innerHTML="<img src='http://distriweb.metrofrance.com/distriplan/mobile/phonegap/loader.gif'>";
 var tournee = document.getElementById("tournee").value;
