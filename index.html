@@ -20,7 +20,6 @@ xhr_object = new XMLHttpRequest();
 
 function edition()
 {
-document.getElementById('loader').innerHTML="<img src='http://distriweb.metrofrance.com/distriplan/mobile/phonegap/loader.gif'>";
 navigator.geolocation.getCurrentPosition(function(position) {
 lati=Math.round(position.coords.latitude);longi=Math.round(position.coords.longitude);
 if (lati==49 && longi==2){var edition='paris';}
