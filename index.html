@@ -38,8 +38,9 @@ writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/index
 }
 
 
-function changecouleur(couleur) {
-document.getElementById('lien').style.color=couleur;
+function changecouleur(num,couleur) {
+var lien="lien"+num;
+document.getElementById(lien).style.color=couleur;
 }
 
 function rechargerPage(edition) {
