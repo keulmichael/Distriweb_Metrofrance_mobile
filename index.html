@@ -37,7 +37,10 @@ writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/index
 })
 }
 
-function menuOver(element){element.color =  "#ccFF99"}
+
+function changecouleur(couleur) {
+document.getElementById('lien').style.color=couleur;
+}
 
 function rechargerPage(edition) {
 document.getElementById('loader').innerHTML="<img src='http://distriweb.metrofrance.com/distriplan/mobile/phonegap/loader.gif'>";
@@ -69,7 +72,6 @@ document.getElementById('open_camera_button').style.visibility="hidden";
 document.getElementById('pic').style.visibility="hidden";}
 
 function voir_point(edition,num,tournee) {
-menuOver(this);
 document.getElementById('loader').innerHTML="<img src='http://distriweb.metrofrance.com/distriplan/mobile/phonegap/loader.gif'>";
 self.setTimeout("writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobile_record_point.php?edition="+edition+"&num="+num+"&tournee="+tournee+"'));", 3000) ;
 self.setTimeout("document.getElementById('open_camera_button').style.visibility='visible';", 3000) ;
@@ -92,9 +94,9 @@ var Quantite_prevue = document.getElementById("quantite_reelle").value;
 var Site = document.getElementById("Site").value;
 var T = document.getElementById("T").value;
 var retours = document.getElementById("quantite_retours").value;
+var codiff = document.getElementById("codiff").value;
 
-writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobile_record_point_ok.php?edition='+edition+'&num='+num+'&Types='+types+'&Quantite_prevue='+Quantite_prevue+'&t_choix='+T+'&site='+Site+'&retours='+retours));
-}
+writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobile_record_point_ok.php?edition='+edition+'&num='+num+'&Types='+types+'&Quantite_prevue='+Quantite_prevue+'&t_choix='+T+'&site='+Site+'&retours='+retours+'&codiff='+codiff));}
 
 function mobile_modif_donnees_reelle(edition,num){
 var site = document.getElementById("site").value;
