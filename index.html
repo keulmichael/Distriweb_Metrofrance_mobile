@@ -37,6 +37,8 @@ writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/index
 })
 }
 
+function menuOver(element){element.color =  "#ccFF99"}
+
 function rechargerPage(edition) {
 document.getElementById('loader').innerHTML="<img src='http://distriweb.metrofrance.com/distriplan/mobile/phonegap/loader.gif'>";
 var tournee = document.getElementById("tournee").value;
@@ -67,6 +69,7 @@ document.getElementById('open_camera_button').style.visibility="hidden";
 document.getElementById('pic').style.visibility="hidden";}
 
 function voir_point(edition,num,tournee) {
+menuOver(this);
 document.getElementById('loader').innerHTML="<img src='http://distriweb.metrofrance.com/distriplan/mobile/phonegap/loader.gif'>";
 self.setTimeout("writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobile_record_point.php?edition="+edition+"&num="+num+"&tournee="+tournee+"'));", 3000) ;
 self.setTimeout("document.getElementById('open_camera_button').style.visibility='visible';", 3000) ;
@@ -89,10 +92,8 @@ var Quantite_prevue = document.getElementById("quantite_reelle").value;
 var Site = document.getElementById("Site").value;
 var T = document.getElementById("T").value;
 var retours = document.getElementById("quantite_retours").value;
-var codiff = document.getElementById("codiff").value;
 
-
-if (codiff>0){
+if (document.getElementById("codiff").value>0){
 writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobile_record_point_ok.php?edition='+edition+'&num='+num+'&Types='+types+'&Quantite_prevue='+Quantite_prevue+'&t_choix='+T+'&site='+Site+'&retours='+retours+'&codiff='+codiff));}
 else{
 writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobile_record_point_ok.php?edition='+edition+'&num='+num+'&Types='+types+'&Quantite_prevue='+Quantite_prevue+'&t_choix='+T+'&site='+Site+'&retours='+retours));}
@@ -106,6 +107,7 @@ if (types=='GD'){var presenceGD = document.getElementById("presenceGD").value;}
 var quantite_retours = document.getElementById("quantite_retours").value;
 var horaire_debut = document.getElementById("horaire_debut").value;
 var T = document.getElementById("T").value;
+var quantite_retours_codiff = document.getElementById("quantite_retours_codiff").value;
 
 if (quantite_reelle==0 && types!='PRINT'){
 writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobile_refuser_point_confirm.php?edition='+edition+'&t_choix='+T+'&num='+num));
@@ -114,11 +116,11 @@ writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobil
 else {
 if (navigator.geolocation){
 navigator.geolocation.getCurrentPosition(function(position) {
-file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobile_modif_donnees_reelle.php?edition='+edition+'&num='+num+'&site='+site+'&Types='+types+'&nouvelle_quantite_reelle='+quantite_reelle+'&nouvelle_quantite_retours='+quantite_retours+'&nouvelle_horaire_debut='+horaire_debut+'&nouvelle_horaire_debut='+horaire_debut+'&PDA_Latitude='+position.coords.latitude+'&PDA_Longitude='+position.coords.longitude+'&presenceGD='+presenceGD),{maximumAge:0, timeout:0}})
+file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobile_modif_donnees_reelle.php?edition='+edition+'&num='+num+'&site='+site+'&Types='+types+'&nouvelle_quantite_reelle='+quantite_reelle+'&nouvelle_quantite_retours='+quantite_retours+'&nouvelle_horaire_debut='+horaire_debut+'&nouvelle_horaire_debut='+horaire_debut+'&PDA_Latitude='+position.coords.latitude+'&PDA_Longitude='+position.coords.longitude+'&presenceGD='+presenceGD+'&quantite_retours_codiff='+quantite_retours_codiff),{maximumAge:0, timeout:0}})
 }
 
 else{
-file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobile_modif_donnees_reelle.php?edition='+edition+'&num='+num+'&site='+site+'&Types='+types+'&nouvelle_quantite_reelle='+quantite_reelle+'&nouvelle_quantite_retours='+quantite_retours+'&nouvelle_horaire_debut='+horaire_debut+'&nouvelle_horaire_debut='+horaire_debut+'&PDA_Latitude=&PDA_Longitude=&presenceGD='+presenceGD);
+file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobile_modif_donnees_reelle.php?edition='+edition+'&num='+num+'&site='+site+'&Types='+types+'&nouvelle_quantite_reelle='+quantite_reelle+'&nouvelle_quantite_retours='+quantite_retours+'&nouvelle_horaire_debut='+horaire_debut+'&nouvelle_horaire_debut='+horaire_debut+'&PDA_Latitude=&PDA_Longitude=&presenceGD='+presenceGD+'&quantite_retours_codiff='+quantite_retours_codiff);
 }
 document.getElementById('loader').innerHTML="<img src='http://distriweb.metrofrance.com/distriplan/mobile/phonegap/loader.gif'>";
 self.setTimeout("writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/index.php?edition="+edition+"&t_choix="+T+"&action=commencer'));", 3000) ;
@@ -165,7 +167,7 @@ document.getElementById('open_camera_button').style.visibility="hidden";
         <link rel="stylesheet" href="css/camera.css" type="text/css">
 </head>
 
-<body onload="edition();onLoad();bascule()">
+<body onload="edition();onLoad();bascule();">
 </body>
 
 <div id='total'></div>
