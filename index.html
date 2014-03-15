@@ -70,12 +70,14 @@ document.getElementById('loader').innerHTML="<img src='http://distriweb.metrofra
 var tournee = document.getElementById("T").value;
 writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/index.php?edition='+edition+'&t_choix='+tournee+'&action=commencer'));
 document.getElementById('open_camera_button').style.visibility="hidden";
+document.getElementById('recharger_photo_button').style.visibility="hidden";
 document.getElementById('pic').style.visibility="hidden";}
 
 function voir_point(edition,num,tournee) {
 document.getElementById('loader').innerHTML="<img src='http://distriweb.metrofrance.com/distriplan/mobile/phonegap/loader.gif'>";
 self.setTimeout("writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobile_record_point.php?edition="+edition+"&num="+num+"&tournee="+tournee+"'));", 3000) ;
 self.setTimeout("document.getElementById('open_camera_button').style.visibility='visible';", 3000) ;
+self.setTimeout("document.getElementById('recharger_photo_button').style.visibility='visible';", 3000) ;
 document.getElementById('pic').style.visibility="visible";}
 
 function affich_photo(edition,num){writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/affich_photo.php?edition='+edition+'&num=' + num));}
@@ -87,7 +89,8 @@ var motif = document.getElementById("motif").value;
 file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/mobile_refuser_point_confirm.php?edition='+edition+'&num='+num+'&motif='+motif);
 self.setTimeout("writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/index.php?edition="+edition+"&t_choix="+T+"&action=commencer'));", 3000) ;
 document.getElementById('pic').style.visibility="hidden";
-document.getElementById('open_camera_button').style.visibility="hidden";}
+document.getElementById('open_camera_button').style.visibility="hidden";
+document.getElementById('recharger_photo_button').style.visibility="hidden";}
 
 function record_ok(edition,num){
 var types = document.getElementById("Types").value;
@@ -126,6 +129,7 @@ document.getElementById('loader').innerHTML="<img src='http://distriweb.metrofra
 self.setTimeout("writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/index.php?edition="+edition+"&t_choix="+T+"&action=commencer'));", 3000) ;
 document.getElementById('pic').style.visibility="hidden";
 document.getElementById('open_camera_button').style.visibility="hidden";
+document.getElementById('recharger_photo_button').style.visibility="hidden";
 }
 }
 
@@ -155,6 +159,7 @@ function bascule()
 {
 etat=document.getElementById('total').style.visibility;
 document.getElementById('open_camera_button').style.visibility="hidden";
+document.getElementById('recharger_photo_button').style.visibility="hidden";
 }
 </script>
 
@@ -187,6 +192,7 @@ document.getElementById('open_camera_button').style.visibility="hidden";
                 <img id="pic" src="" style="display: none; border: 2px black;"/>
 </div>
 
+<input type="button" id="recharger_photo_button" value="Rechager la photo" onclick="recharger_photo()">
 
 
 </html> 
