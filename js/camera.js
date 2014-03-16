@@ -173,7 +173,7 @@ function recharger_photo() {
 var imageData = document.getElementById("imageData").value;    
 var num = document.getElementById("num").value;
 var edition = document.getElementById("edition").value;
-    var fichierupload = encodeURI("http://distriweb.metrofrance.com/reporting/mobile/phonegap/photo.php?edition="+edition+"&num="+num)
+    var fichierupload = encodeURI("http://distriweb.metrofrance.com/distriplan/mobile/phonegap/photo.php?edition="+edition+"&num="+num)
     var photo = getElement("pic");
     photo.style.display = "block";
     photo.src = imageData;
