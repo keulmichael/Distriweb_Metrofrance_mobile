@@ -61,7 +61,15 @@ function onDeviceReady() {
     $("#open_lib_button").bind ("click", onCapture);
     $("#open_alb_button").bind ("click", onCapture);
     $("#home_button").bind("click", removeTemporaryFiles); 
+    
+    document.addEventListener("online", onOnline, false);
+    document.addEventListener("offline", onOffline, false)
+
 }
+
+function onOnline() {alert("Connexion active");}
+
+function onOffline() {alert("!Connexion inactive");}
 
 // Overwrites the default behavior of the device back button
 function onBackPress(e) {
@@ -165,6 +173,19 @@ var edition = document.getElementById("edition").value;
 
             var ft = new FileTransfer();
             ft.upload(nomphoto, fichierupload, win, fail, options);
+            
+            var networkState = navigator.network.connection.type;
+
+        var states = {};
+        states[Connection.UNKNOWN] = 'Connexion inconnue';
+        states[Connection.ETHERNET] = 'Connexion Ethernet';
+        states[Connection.WIFI] = 'Connexion WiFi';
+        states[Connection.CELL_2G] = 'Connexion 2G';
+        states[Connection.CELL_3G] = 'Connexion 3G';
+        states[Connection.CELL_4G] = 'Connexion 4G';
+        states[Connection.NONE] = 'Pas de connexion réseau';
+
+        alert('Connexion : ' + states[networkState]);
 }
 
 
@@ -193,6 +214,19 @@ var edition = document.getElementById("edition").value;
 
             var ft = new FileTransfer();
             ft.upload(nomphoto, fichierupload, win, fail, options);
+            
+         var networkState = navigator.network.connection.type;
+
+        var states = {};
+        states[Connection.UNKNOWN] = 'Connexion inconnue';
+        states[Connection.ETHERNET] = 'Connexion Ethernet';
+        states[Connection.WIFI] = 'Connexion WiFi';
+        states[Connection.CELL_2G] = 'Connexion 2G';
+        states[Connection.CELL_3G] = 'Connexion 3G';
+        states[Connection.CELL_4G] = 'Connexion 4G';
+        states[Connection.NONE] = 'Pas de connexion réseau';
+
+        alert('Connexion : ' + states[networkState]);
 }
 
 // camera.getPicture() callback function that provides an error message  
