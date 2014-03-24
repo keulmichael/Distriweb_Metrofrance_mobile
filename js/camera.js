@@ -196,7 +196,7 @@ var edition = document.getElementById("edition").value;
 }
 
 // camera.getPicture() callback function that provides an error message  
-function onCaptureError(message) { }
+function onCaptureError(message) {alert(message);  }
 
 // Reads customized camera options from the settings_form and saves them to the settings object (cameraOptions storage)
 function applySettings() {
