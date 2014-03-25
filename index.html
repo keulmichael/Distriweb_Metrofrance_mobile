@@ -20,6 +20,7 @@ xhr_object = new XMLHttpRequest();
 
 function edition()
 {
+if (navigator.geolocation){
 navigator.geolocation.getCurrentPosition(function(position) {
 lati=Math.round(position.coords.latitude);longi=Math.round(position.coords.longitude);
 if (lati==49 && longi==2 || lati==49 && longi==1 || lati==48 && longi==1 || lati==48 && longi==2  || lati==47 && longi==1 || lati==49 && longi==4){var edition='paris';}
@@ -34,7 +35,10 @@ if (lati==44 && longi==4){var edition='montpellier';}
 if (lati==45 && longi==-1){var edition='bordeaux';}
 if (lati==44 && longi==7){var edition='nice';}
 writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/index.php?edition='+edition))
-})
+})}
+else {
+writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/select_edition.php'))
+}
 }
 
 
