@@ -41,6 +41,11 @@ writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/selec
 }
 }
 
+function edition_sans_gps()
+{
+var edition = document.getElementById("edition").value;
+writediv(file('http://distriweb.metrofrance.com/distriplan/mobile/phonegap/index.php?edition='+edition))
+}
 
 function changecouleur(num,couleur) {
 var lien="lien"+num;
