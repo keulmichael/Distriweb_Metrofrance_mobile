@@ -150,7 +150,23 @@ function onCapture(e) {
 
 // Shows photo captured by camera.getPicture()
 function onCaptureSuccess(imageData) {
-    
+
+         var networkState = navigator.network.connection.type;
+
+        var states = {};
+        states[Connection.UNKNOWN] = 'Connexion inconnue';
+        states[Connection.ETHERNET] = 'Connexion Ethernet';
+        states[Connection.WIFI] = 'Connexion WiFi';
+        states[Connection.CELL_2G] = 'Connexion 2G';
+        states[Connection.CELL_3G] = 'Connexion 3G';
+        states[Connection.CELL_4G] = 'Connexion 4G';
+        states[Connection.NONE] = 'Pas de connexion réseau';
+
+if (states[networkState] == 'Pas de connexion réseau') {
+        alert(states[networkState]);}
+        
+else
+{
 var num = document.getElementById("num").value;
 var edition = document.getElementById("edition").value;
     var fichierupload = encodeURI("http://distriweb.metrofrance.com/distriplan/mobile/phonegap/photo.php?edition="+edition+"&num="+num+"&imageData="+imageData)
@@ -173,19 +189,7 @@ var edition = document.getElementById("edition").value;
 
             var ft = new FileTransfer();
             ft.upload(nomphoto, fichierupload, win, fail, options);
-            
-            var networkState = navigator.network.connection.type;
-
-        var states = {};
-        states[Connection.UNKNOWN] = 'Connexion inconnue';
-        states[Connection.ETHERNET] = 'Connexion Ethernet';
-        states[Connection.WIFI] = 'Connexion WiFi';
-        states[Connection.CELL_2G] = 'Connexion 2G';
-        states[Connection.CELL_3G] = 'Connexion 3G';
-        states[Connection.CELL_4G] = 'Connexion 4G';
-        states[Connection.NONE] = 'Pas de connexion réseau';
-
-        alert('Connexion : ' + states[networkState]);
+}
 }
 
 
