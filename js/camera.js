@@ -159,8 +159,8 @@ function onCaptureSuccess(imageData) {
         states[Connection.CELL_4G] = 'Connexion 4G';
         states[Connection.NONE] = 'Pas de connexion réseau';
 
-if (states[networkState] == 'Veuillez reprendre la photo') {
-        alert(states[networkState]);}
+if (states[networkState] == 'Pas de connexion réseau') {
+        alert('Veuillez reprendre la photo');}
         
 else
 {
