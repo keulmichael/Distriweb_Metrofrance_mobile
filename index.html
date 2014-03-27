@@ -18,6 +18,12 @@ xhr_object = new XMLHttpRequest();
      else return(false);
      }
 
+function onOnline() {
+alert("Connexion active");
+edition()}
+
+function onOffline() {alert("***Connexion inactive***");}
+
 function edition()
 {
 if (navigator.geolocation){
