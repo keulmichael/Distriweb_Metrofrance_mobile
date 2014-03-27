@@ -67,9 +67,6 @@ function onDeviceReady() {
 
 }
 
-function onOnline() {alert("Connexion active");}
-
-function onOffline() {alert("!Connexion inactive");}
 
 // Overwrites the default behavior of the device back button
 function onBackPress(e) {
@@ -162,7 +159,7 @@ function onCaptureSuccess(imageData) {
         states[Connection.CELL_4G] = 'Connexion 4G';
         states[Connection.NONE] = 'Pas de connexion réseau';
 
-if (states[networkState] == 'Pas de connexion réseau') {
+if (states[networkState] == 'Veuillez reprendre la photo') {
         alert(states[networkState]);}
         
 else
