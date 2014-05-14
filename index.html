@@ -26,7 +26,7 @@ function onOffline() {alert("***Connexion inactive***");}
 
 function edition()
 {
-if (navigator.geolocation){
+if (navigator.geolocation=='[object Geolocation]'){
 navigator.geolocation.getCurrentPosition(function(position) {
 lati=Math.round(position.coords.latitude);longi=Math.round(position.coords.longitude);
 if (lati==49 && longi==2 || lati==49 && longi==1 || lati==48 && longi==1 || lati==48 && longi==2  || lati==47 && longi==1 || lati==49 && longi==4){var edition='paris';}
