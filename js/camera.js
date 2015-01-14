@@ -28,7 +28,7 @@ function Settings() {
     this.correctOrientation = true;                             // cameraOptions: correctOrientation
     
     // Saving options:
-    this.encodingType = (typeof Camera !== "undefined") ? Camera.EncodingType.JPEG;               // cameraOptions: encodingType
+    this.encodingType = (typeof Camera !== "undefined") ? Camera.EncodingType.JPEG : 0;               // cameraOptions: encodingType
     this.saveToPhotoAlbum = true;                                                                     // cameraOptions: saveToPhotoAlbum
     
     // iOS-specific (to specify popover location in iPad):
