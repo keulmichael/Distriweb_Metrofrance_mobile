@@ -172,7 +172,7 @@ var fichierupload = encodeURI("http://distriweb.metrofrance.com/distriplan/mobil
 
 var photo = getElement("pic");
 photo.style.display = "block";
-photo.src = imageData;
+photo.src = "data:image/jpeg;base64," + imageData;
 $.mobile.changePage("#result_page", "slideup");
 var nomphoto = photo.src;
 
