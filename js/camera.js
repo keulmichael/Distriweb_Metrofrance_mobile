@@ -16,7 +16,7 @@ function Settings() {
     // Opening options:
     if ((typeof Camera !== "undefined")) {
         
-        this.destinationType = Camera.DestinationType.FILE_URI : 1;     // cameraOptions: destinationType
+        this.destinationType = Camera.DestinationType.FILE_URI;     // cameraOptions: destinationType
         this.mediaType = Camera.MediaType.PICTURE;                  // cameraOptions: mediaType
     }
     
@@ -28,7 +28,7 @@ function Settings() {
     this.correctOrientation = true;                             // cameraOptions: correctOrientation
     
     // Saving options:
-    this.encodingType = (typeof Camera !== "undefined") ? Camera.EncodingType.JPEG : 0;               // cameraOptions: encodingType
+    this.encodingType = (typeof Camera !== "undefined") ? Camera.EncodingType.JPEG;               // cameraOptions: encodingType
     this.saveToPhotoAlbum = true;                                                                     // cameraOptions: saveToPhotoAlbum
     
     // iOS-specific (to specify popover location in iPad):
