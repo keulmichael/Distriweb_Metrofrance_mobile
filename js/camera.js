@@ -16,7 +16,7 @@ function Settings() {
     // Opening options:
     if ((typeof Camera !== "undefined")) {
         
-        this.destinationType = Camera.DestinationType.FILE_URI;     // cameraOptions: destinationType
+        this.destinationType = Camera.DestinationType.FILE_URI : 1;     // cameraOptions: destinationType
         this.mediaType = Camera.MediaType.PICTURE;                  // cameraOptions: mediaType
     }
     
