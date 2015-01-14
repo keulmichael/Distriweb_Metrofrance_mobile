@@ -17,7 +17,6 @@ function Settings() {
     if ((typeof Camera !== "undefined")) {
         
         this.destinationType = Camera.DestinationType.FILE_URI;     // cameraOptions: destinationType
-        this.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;    // cameraOptions: sourceType
         this.mediaType = Camera.MediaType.PICTURE;                  // cameraOptions: mediaType
     }
     
@@ -147,7 +146,7 @@ function onCapture(e) {
 
 // Shows photo captured by camera.getPicture()
 function onCaptureSuccess(imageData) {
-
+alert(imageData);
          var networkState = navigator.network.connection.type;
 
         var states = {};
@@ -167,12 +166,12 @@ else
 var num = document.getElementById("num").value;
 var edition = document.getElementById("edition").value;
 	
-alert(imageData);
+
 var fichierupload = encodeURI("http://distriweb.metrofrance.com/distriplan/mobile/phonegap/photo.php?edition="+edition+"&num="+num+"&imageData="+imageData)
 
 var photo = getElement("pic");
 photo.style.display = "block";
-photo.src = "data:image/jpeg;base64," + imageData;
+photo.src = imageData;
 $.mobile.changePage("#result_page", "slideup");
 var nomphoto = photo.src;
 
