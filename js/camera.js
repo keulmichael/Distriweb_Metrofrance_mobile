@@ -166,26 +166,29 @@ else
 {
 var num = document.getElementById("num").value;
 var edition = document.getElementById("edition").value;
-    var fichierupload = encodeURI("http://distriweb.metrofrance.com/distriplan/mobile/phonegap/photo.php?edition="+edition+"&num="+num+"&imageData="+imageData)
-    var photo = getElement("pic");
-    photo.style.display = "block";
-    photo.src = imageData;
-    $.mobile.changePage("#result_page", "slideup");
-    var nomphoto = photo.src;	
 
-	    var options = new FileUploadOptions();
-            options.fileKey="photo";
-            options.fileName=nomphoto.substr(nomphoto.lastIndexOf('/')+1);
-            options.mimeType="image/jpeg";
-            options.chunkedMode = false;
-            
-            var params = new Object();
-            params.value1 = "test";
-            params.value2 = "param";
-            options.params = params;
+var fichierupload = encodeURI("http://distriweb.metrofrance.com/distriplan/mobile/phonegap/photo.php?edition="+edition+"&num="+num+"&imageData="+imageData)
 
-            var ft = new FileTransfer();
-            ft.upload(nomphoto, fichierupload, win, fail, options);
+var photo = getElement("pic");
+photo.style.display = "block";
+photo.src = imageData;
+$.mobile.changePage("#result_page", "slideup");
+var nomphoto = photo.src;
+alert(nomphoto);
+
+var options = new FileUploadOptions();
+options.fileKey="photo";
+options.fileName=nomphoto.substr(nomphoto.lastIndexOf('/')+1);
+options.mimeType="image/jpeg";
+options.chunkedMode = false;
+
+var params = {};
+params.value1 = "test";
+params.value2 = "param";
+options.params = params;
+
+var ft = new FileTransfer();
+ft.upload(nomphoto, fichierupload, win, fail, options);
 }
 }
 
