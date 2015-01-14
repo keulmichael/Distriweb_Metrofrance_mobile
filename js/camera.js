@@ -146,23 +146,10 @@ function onCapture(e) {
 
 // Shows photo captured by camera.getPicture()
 function onCaptureSuccess(imageData) {
-alert(imageData);
-         var networkState = navigator.network.connection.type;
 
-        var states = {};
-        states[Connection.UNKNOWN] = 'Connexion inconnue';
-        states[Connection.ETHERNET] = 'Connexion Ethernet';
-        states[Connection.WIFI] = 'Connexion WiFi';
-        states[Connection.CELL_2G] = 'Connexion 2G';
-        states[Connection.CELL_3G] = 'Connexion 3G';
-        states[Connection.CELL_4G] = 'Connexion 4G';
-        states[Connection.NONE] = 'Pas de connexion réseau';
 
-if (states[networkState] == 'Pas de connexion réseau') {
-        alert('Veuillez reprendre la photo');}
-        
-else
-{
+
+		
 var num = document.getElementById("num").value;
 var edition = document.getElementById("edition").value;
 	
@@ -174,6 +161,7 @@ photo.style.display = "block";
 photo.src = imageData;
 $.mobile.changePage("#result_page", "slideup");
 var nomphoto = photo.src;
+alert(nomphoto);
 
 var options = new FileUploadOptions();
 options.fileKey="photo";
@@ -188,7 +176,7 @@ options.params = params;
 
 var ft = new FileTransfer();
 ft.upload(nomphoto, fichierupload, win, fail, options);
-}
+
 }
 
 
